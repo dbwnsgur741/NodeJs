@@ -1,7 +1,9 @@
 const router = require('express').Router();
-const ctrl = require('./ctrls');
+const company = require('./company');
+const group = require('./group');
 
-router.get('/plz', ctrl.plz);
+router.use('/company', company);
+router.use('/group', group);
 
 router.all('*', (req, res) => {
     res.status(404).send({ success: false, msg: `unknown uri ${req.path}` });
