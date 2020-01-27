@@ -5,15 +5,24 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var favicon = require('serve-favicon');
 var bodyParser = require('body-parser');
+const cfg = require('./cfg/cfg');
+
+if(!cfg){
+  console.error('cfg.js file not exists');
+  process.exit(1);
+}
 
 var app = express();
+
+if(cfg.web.cors){
+  app.use(require('cors')());
+}
 
 // view engine setup
 app.use(favicon(path.join(__dirname,'public','favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // 라우터 우선 순위는 선언 순이다 !! ( find index.html )
@@ -43,12 +52,7 @@ app.use(function(err, req, res, next) {
 /*
 const pg = require('./playGround.js');
 const mongoose = require('mongoose');
-const cfg = require('./cfg/cfg');
 
-if(!cfg){
-  console.log('cfg.js file not exists');
-  process.exit(1);
-}
 
 mongoose.connect(cfg.db.url,{ useNewUrlParser : true }, (err) => {
   if(err) return console.error(err);
