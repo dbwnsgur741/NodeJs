@@ -14,6 +14,8 @@
 
 - AWS EC2 - Ubuntu ( 18.04 ) 
 
+- NodeMon
+
 ## To use cfg.js For connect with MongoDB Atlas
 
 - You must change db.url for your MongoDB atlas
