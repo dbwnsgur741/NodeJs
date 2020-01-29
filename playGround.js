@@ -28,6 +28,30 @@ exports.test = {
     },
 };
 
+// COMPANY 에서 읽어 오기
+
+exports.company = {
+    model: () => {
+        console.log('모델 테스트');
+
+        Company.find({})
+            .then((r) => {
+                console.log(r);
+            })
+            .catch(err => console.error(err));
+    },
+}
+
+exports.group = {
+    model: () => {
+        Group.find({})
+            .then((r) => {
+                console.log(r);
+            })
+            .catch(err => console.error(err));
+    },
+}
+
 // save method 는 추가한 객체를 반환한다.
 // insert method 는 성공 유무를 반환.
 // mongoose 5 부터는 모든 반환을 promise로 받을 수 있다.
@@ -54,20 +78,6 @@ exports.test = {
             .catch(err=> console.error(err));
     },
 };
-
-**** COMPANY 에서 읽어 오기 *****
-
-exports.test = {
-    model: () => {
-        console.log('모델 테스트');
-
-        Company.findOne({ name: '테스트'})
-            .then((r)=>{
-            console.log(r);
-            })
-            .catch(err => console.error(err));
-    },
-
 
 **** COMPANY 에서 읽어온 id값을 Group에 넣어서 추가  *****
 

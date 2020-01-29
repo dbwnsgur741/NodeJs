@@ -49,6 +49,7 @@ app.use(function(err, req, res, next) {
   res.render({ sucess: false, msg: err.message });
 });
 
+
 /*
 const pg = require('./playGround.js');
 const mongoose = require('mongoose');
@@ -57,8 +58,10 @@ const mongoose = require('mongoose');
 mongoose.connect(cfg.db.url,{ useNewUrlParser : true }, (err) => {
   if(err) return console.error(err);
   console.log('mongoose connected');
-  pg.test.model();
+  pg.company.model();
+  pg.group.model();
 });
+
 
 */
 

@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const company = require('./company');
-const group = require('./group');
+const company = require('./company/index');
+const group = require('./group/index');
 
 router.use('/company', company);
 router.use('/group', group);
